@@ -3,7 +3,7 @@
 let numberOfFilms;
 
 function start() {
-  numberOfFilms = +prompt('How many movies have you seen?', '');
+  numberOfFilms = +prompt('How many movies have you seen?', '').trim();
 
   while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
     numberOfFilms = +prompt('How many movies have you seen?', '');
@@ -61,7 +61,9 @@ function showMyDB(hidden) {
 
 function writeYourGenres() {
   for (let i = 1; i <= 3; i++) {
-    personalMovieDB.genres.push(prompt(`Your favorite movie genre number ${i}`, ''));
+    personalMovieDB.genres.push(
+      prompt(`Your favorite movie genre number ${i}`, ''),
+    );
   }
 }
 
