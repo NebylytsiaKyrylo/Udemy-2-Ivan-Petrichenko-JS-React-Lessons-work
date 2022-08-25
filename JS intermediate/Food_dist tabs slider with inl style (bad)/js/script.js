@@ -36,11 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const deadLine = '2022-08-25';
 
   function getTimeRemaining(endtime) {
-    const total = Date.parse(endtime) - new Date(),
-      days = Math.floor(total / (1000 * 60 * 60 * 24)),
-      hours = Math.floor((total / (1000 * 60 * 60)) % 24),
-      minutes = Math.floor((total / 1000 / 60) % 60),
-      seconds = Math.floor((total / 1000) % 60);
+    let days, hours, minutes, seconds;
+    const total = Date.parse(endtime) - new Date();
+
+    if (total <= 0) {
+      days = 0;
+      hours = 0;
+      minutes = 0;
+      seconds = 0;
+    }
+
+    days = Math.floor(total / (1000 * 60 * 60 * 24));
+    hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    minutes = Math.floor((total / 1000 / 60) % 60);
+    seconds = Math.floor((total / 1000) % 60);
 
     return {
       total,
@@ -73,10 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (t.total <= 0) {
         clearInterval(timeInterval);
-        days.innerHTML = '00';
-        hours.innerHTML = '00';
-        minutes.innerHTML = '00';
-        seconds.innerHTML = '00';
       }
     }
   }
