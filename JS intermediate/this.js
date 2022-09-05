@@ -12,6 +12,8 @@
 
 // showThis(4, 5);
 
+
+
 //2
 // const obj = {
 //   a: 20,
@@ -48,3 +50,4 @@
 // 2. this in object = object
 // 3. this in constructor and Class = new exemplar of object
 // 4. manual binding this: call, apply, bind
+
